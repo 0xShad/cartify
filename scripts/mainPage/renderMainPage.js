@@ -1,4 +1,5 @@
 import { products } from "../data/product.js";
+import { formatMoney } from "../../utils/formatMoney.js";
 
 
 export function renderMainPage() {
@@ -14,7 +15,7 @@ export function renderMainPage() {
           <h5 class="text-sm min-w-[48px] max-h-[72px] mb-2">${item.name}</h5>
           <img src="images/products/ratings/rating-${item.rating.stars * 10}.png" alt="" class="h-4">
           <div class="flex justify-between mt-10 items-center">
-            <h5 class="font-bold">$${(item.priceCents) * 100}</h5>
+            <h5 class="font-bold">$${formatMoney(item.priceCents)}</h5>
             
             <button class="bg-[#3929ff] px-1.5 py-1 rounded-lg lg:px-2.5 lg:py-2">Add to cart</button>
           </div>
