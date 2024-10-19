@@ -42,14 +42,14 @@ export function renderMainPage() {
    document.querySelectorAll('.addQuantityBtn')
    .forEach((button) => {
     button.addEventListener('click', () => {
-      incrementQuantity()
+      incrementQuantity(button, productQuantities)
     })
    })
    //quantity counter for sub
    document.querySelectorAll('.subQuantityBtn')
    .forEach((button) => {
     button.addEventListener('click', () => {
-      decrementQuantity()
+      decrementQuantity(button, productQuantities)
     })
    })
   
