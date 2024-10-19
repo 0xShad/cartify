@@ -1,4 +1,6 @@
-const nav = document.querySelector('.navbar')
+
+export function navBar () {
+    const nav = document.querySelector('.navbar')
 
 document.querySelector('.burger')
 .addEventListener('click', () => {
@@ -11,3 +13,5 @@ document.querySelector('.burger-close')
     nav.classList.add('hidden')
     nav.classList.remove('smallNav')
 })
+
+}

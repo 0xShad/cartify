@@ -25,5 +25,4 @@ export async function loadProducts() {
     products = prodDetails.map((prodDetails) => {
             return new Product(prodDetails)
     })
-    console.log(products)
 }
