@@ -1,5 +1,6 @@
 import { products } from "../data/product.js";
 import { formatMoney } from "../../utils/formatMoney.js";
+import { incrementQuantity, decrementQuantity } from "./counter.js";
 
 
 export function renderMainPage() {
@@ -33,34 +34,22 @@ export function renderMainPage() {
    })
    
    
-   
+   // append products to the dom
    document.querySelector('.product-grid')
    .innerHTML = productHTML
 
+   //quantity counter for add
    document.querySelectorAll('.addQuantityBtn')
    .forEach((button) => {
     button.addEventListener('click', () => {
-      const productId = button.dataset.productId
-      productQuantities[productId] += 1
-      let prodQuantityHTML = document.querySelector(`.js-quantity-${productId}`)
-      prodQuantityHTML.innerHTML = productQuantities[productId]
+      incrementQuantity()
     })
    })
-
+   //quantity counter for sub
    document.querySelectorAll('.subQuantityBtn')
    .forEach((button) => {
     button.addEventListener('click', () => {
-      const productId = button.dataset.productId
-      let prodQuantityHTML = document.querySelector(`.js-quantity-${productId}`)
-
-      if(productQuantities[productId] <= 1) {
-        alert('error')
-      } else {
-        productQuantities[productId] -= 1
-      
-        prodQuantityHTML.innerHTML = productQuantities[productId]
-      }
-     
+      decrementQuantity()
     })
    })
   
