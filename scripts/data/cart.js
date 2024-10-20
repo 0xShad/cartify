@@ -1,5 +1,4 @@
-export let cart = [{
-}]
+export let cart = JSON.parse(localStorage.getItem('cart')) || []
 
 
 export function addCart(productId, productQuantities) {
@@ -19,5 +18,19 @@ export function addCart(productId, productQuantities) {
 
     let prodQuantityHTML = document.querySelector(`.js-quantity-${productId}`)
     prodQuantityHTML.innerHTML = 1
-    console.log(cart)
+    saveToStorage()
+}
+
+export function updateCartQuantity() {
+    let counter = 0
+    cart.forEach((cartItem) => {
+        counter += cartItem.quantity
+    })
+
+    document.querySelector('.cart-quantity-html').innerHTML = counter
+    saveToStorage()
+}
+
+function saveToStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
