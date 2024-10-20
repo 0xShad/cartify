@@ -1,6 +1,7 @@
 import { products } from "../data/product.js";
 import { formatMoney } from "../../utils/formatMoney.js";
 import { incrementQuantity, decrementQuantity } from "./counter.js";
+import { addCart } from "../data/cart.js";
 
 
 export function renderMainPage() {
@@ -22,7 +23,7 @@ export function renderMainPage() {
               <div class="flex justify-between mt-10 items-center">
                 <h5 class="font-bold">$${formatMoney(item.priceCents)}</h5>
                 
-                <button class="bg-[#3929ff] px-1.5 py-1 rounded-lg lg:px-2.5 lg:py-2">Add to cart</button>
+                <button class="js-add-cart-btn bg-[#3929ff] px-1.5 py-1 rounded-lg lg:px-2.5 lg:py-2" data-product-id="${item.id}">Add to cart</button>
               </div>
             </div>  
      </div>
@@ -53,6 +54,12 @@ export function renderMainPage() {
     })
    })
   
-
+   document.querySelectorAll('.js-add-cart-btn')
+   .forEach((addCartBtn) => {
+    addCartBtn.addEventListener('click', () => {
+      const productId = addCartBtn.dataset.productId
+      addCart(productId, productQuantities)
+    })
+   })
 
 }
