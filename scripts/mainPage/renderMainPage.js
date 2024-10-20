@@ -1,10 +1,11 @@
 import { products } from "../data/product.js";
 import { formatMoney } from "../../utils/formatMoney.js";
 import { incrementQuantity, decrementQuantity } from "./counter.js";
-import { addCart } from "../data/cart.js";
+import { addCart, updateCartQuantity } from "../data/cart.js";
 
 
 export function renderMainPage() {
+  updateCartQuantity()
     let productHTML = ''
     let productQuantities = {}
 
@@ -59,6 +60,8 @@ export function renderMainPage() {
     addCartBtn.addEventListener('click', () => {
       const productId = addCartBtn.dataset.productId
       addCart(productId, productQuantities)
+      productQuantities[productId] = 1
+      updateCartQuantity()
     })
    })
 
