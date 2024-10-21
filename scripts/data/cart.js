@@ -34,3 +34,17 @@ export function updateCartQuantity() {
 export function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
+
+
+export function removeCartItem(id) {
+    let newCart = []
+
+    cart.forEach((cartItem) => {
+        if(cartItem.productId != id) {
+            newCart.push(cartItem)
+        }
+    })
+
+    cart = newCart
+    saveToStorage()
+}
