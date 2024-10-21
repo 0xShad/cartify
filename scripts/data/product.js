@@ -26,3 +26,16 @@ export async function loadProducts() {
             return new Product(prodDetails)
     })
 }
+
+
+export function productsMatchItem(productId) {
+    let matchProduct;
+
+    products.forEach((productItem) => {
+        if (productItem.id === productId) {
+            matchProduct = productItem
+        }
+    })
+
+    return matchProduct
+} 
