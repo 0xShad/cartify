@@ -24,7 +24,7 @@ export function addCart(productId, productQuantities) {
 export function updateCartQuantity() {
     let counter = 0
     cart.forEach((cartItem) => {
-        counter += cartItem.quantity
+        counter += 1
     })
 
     document.querySelector('.cart-quantity-html').innerHTML = counter

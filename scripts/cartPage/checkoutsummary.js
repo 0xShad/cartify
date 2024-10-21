@@ -2,8 +2,10 @@ import {cart} from '../data/cart.js'
 import { productsMatchItem } from '../data/product.js'
 import { formatMoney } from '../../utils/formatMoney.js'
 import {incrementQuantityCheckout, decrementQuantityCheckout} from '../mainPage/counter.js'
+import { updateCartQuantity } from '../data/cart.js'
 
 export function loadCheckoutSummary() {
+    updateCartQuantity()
     let cartItemHTML = ''
 
     cart.forEach((cartItem) => {
