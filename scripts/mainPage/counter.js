@@ -1,3 +1,6 @@
+import { cart } from "../data/cart"
+import {saveToStorage} from '../data/cart.js'
+
 export function incrementQuantity(button, productQuantities) {
     const productId = button.dataset.productId
     productQuantities[productId] += 1
@@ -16,4 +19,28 @@ export function decrementQuantity(button, productQuantities) {
     
       prodQuantityHTML.innerHTML = productQuantities[productId]
     }
+}
+
+export function incrementQuantityCheckout(button) {
+  const id = button.dataset.productId 
+
+  cart.forEach((cartItem) => {
+    if(id === cartItem.productId) {
+      cartItem.quantity += 1
+      document.querySelector(`.js-quantity-${id}`).innerHTML = cartItem.quantity
+      saveToStorage()
+    }
+  })
+}
+
+export function decrementQuantityCheckout(button) {
+  const id = button.dataset.productId 
+
+  cart.forEach((cartItem) => {
+    if(id === cartItem.productId) {
+      cartItem.quantity -= 1
+      document.querySelector(`.js-quantity-${id}`).innerHTML = cartItem.quantity
+      saveToStorage()
+    }
+  })
 }

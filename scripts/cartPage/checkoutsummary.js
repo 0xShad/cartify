@@ -1,6 +1,7 @@
 import {cart} from '../data/cart.js'
 import { productsMatchItem } from '../data/product.js'
 import { formatMoney } from '../../utils/formatMoney.js'
+import {incrementQuantityCheckout, decrementQuantityCheckout} from '../mainPage/counter.js'
 
 export function loadCheckoutSummary() {
     let cartItemHTML = ''
@@ -21,9 +22,9 @@ export function loadCheckoutSummary() {
               </div>
                 <div class="flex justify-between mt-5 items-center">
                   <div class="counter-quantity flex gap-5 items-center">
-                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">-</button>
-                    <span>${cartItem.quantity}</span>
-                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">+</button>
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md subQuantityBtn"  data-product-id="${cartId}">-</button>
+                    <span class="js-quantity-${cartId}">${cartItem.quantity}</span>
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md addQuantityBtn" data-product-id="${cartId}">+</button>
                   </div>
                   <div class="price text-right">
                     <h1>$${(formatMoney(product.priceCents) * cartItem.quantity ).toFixed(2)}</h1>
@@ -35,4 +36,22 @@ export function loadCheckoutSummary() {
 
         document.querySelector('.cart-summary').innerHTML = cartItemHTML
     })
+
+    document.querySelectorAll('.addQuantityBtn')
+    .forEach((button) => {
+     button.addEventListener('click', () => {
+      incrementQuantityCheckout(button)
+      loadCheckoutSummary()
+     })
+    })
+
+    document.querySelectorAll('.subQuantityBtn')
+    .forEach((subButton) => {
+      subButton.addEventListener('click', () => {
+        decrementQuantityCheckout(subButton)
+        loadCheckoutSummary()
+      })
+    })
+
+
 }
