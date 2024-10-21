@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cartify - checkout</title>
+  </head>
+  <body class="relative text-sm bg-slate-950">
+    <header
+      class="sticky top-0 z-[20] mx-auto flex w-full gap-20 items-center justify-between  p-8 px-10 bg-slate-950 bg-opacity-60"
+    >
+      <a href="index.html"><h1 class="text-[#3929ff] font-bold text-sm sm:text-2xl shadowText cursor-pointer">Cartify</h1></a>
+      
+      <ion-icon name="menu-outline" class="burger text-white text-2xl  top-0 right-0 p-3 cursor-pointer sm:hidden"></ion-icon>
+      <nav class="text-[#3929ff] items-center font-normal text-[8px] sm:text-[15px] md:gap-20 gap-5 absolute left-0 flex-col w-full bg-[#3929ff] top-0 min-h-[500px] justify-center sm:sticky sm:flex-row sm:bg-transparent sm:justify-end sm:min-h-0 hidden sm:flex navbar">
+
+        <ion-icon name="close-outline" class="burger-close text-white text-2xl absolute top-0 right-0 p-3 cursor-pointer sm:hidden"></ion-icon>
+        <h3 class="shadowText cursor-pointer">Shop</h3>
+        <h3 class="shadowText cursor-pointer"><span class="text-lg font-bold m-3 px-1 rounded-md bg-white text-[#3929ff] sm:text-white sm:bg-[#3929ff] cart-quantity-html">0</span>Cart</h3>
+      </nav>
+    </header>
+
+    <main class="text-white  w-full px-10 py-5 ">
+      <h1 class="mb-2">Checkout Summary</h1>
+      <div class="summary-grid grid grid-cols-1 gap-5 md:grid-cols-2 md:px-20">
+        <div class="cart-summary grid grid-cols-1 gap-2">
+            <div class="card p-5 dark:bg-gray-800 dark:border-gray-700 rounded-lg">
+            <div class="cart-container grid grid-cols-2 mt-3 gap-4">
+
+                <img class="rounded-sm" src="images/products/6-piece-white-dinner-plate-set.jpg" alt="">
+                <div class="details">
+                    <h1 class="text-xs mb-2">White dinner plate set - 6pcs</h1>
+                </div>
+              </div>
+                <div class="flex justify-between mt-5 items-center">
+                  <div class="counter-quantity flex gap-5 items-center">
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">-</button>
+                    <span>0</span>
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">+</button>
+                  </div>
+                  <div class="price text-right">
+                    <h1>$10.99</h1>
+                    <button class="text-red-600 cursor-pointer">delete</button>
+                  </div>
+                </div>
+                </div>
+                <div class="card p-5 dark:bg-gray-800 dark:border-gray-700 rounded-lg">
+            <div class="cart-container grid grid-cols-2 mt-3 gap-4">
+
+                <img class="rounded-sm" src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" alt="">
+                <div class="details">
+                    <h1 class="text-xs mb-2">White dinner plate set - 6pcs</h1>
+                </div>
+              </div>
+                <div class="flex justify-between mt-5 items-center">
+                  <div class="counter-quantity flex gap-5 items-center">
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">-</button>
+                    <span>0</span>
+                    <button class="bg-[#3929ff] px-3 py-1 rounded-md">+</button>
+                  </div>
+                  <div class="price text-right">
+                    <h1>$10.99</h1>
+                    <span class="text-red-600 cursor-pointer">delete</span>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="">
+                <h1>Delivery option</h1>
+                <div class="mt-2">
+                  <div class="option flex gap-2 items-center">
+                    <input type="radio">
+                    <div class="option-details">
+                      <p>Wednesday, October 21</p>
+                    </div>
+                  </div>
+                  <div class="option flex items-center gap-2">
+                    <input type="radio">
+                    <div class="option-details">
+                      <p>Saturday, October 21</p>
+                    </div>
+                  </div>
+                  <div class="option flex items-center gap-2">
+                    <input type="radio">
+                    <div class="option-details">
+                      <p>Friday, October 21</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-sum mt-3">
+                  <h1>Order summary</h1>
+                  <div class="">
+                    <div class="flex justify-between">
+                      <p>Items (3)</p>
+                      <p>$10.99</p>
+                    </div>
+                    <div class="flex justify-between">
+                      <p>Shipping fee</p>
+                      <p>$5.99</p>
+                    </div>
+                    <div class="flex justify-between">
+                      <p>Total before tax</p>
+                      <p>$16.98</p>
+                    </div>
+                    <div class="flex justify-between">
+                      <p>Tax</p>
+                      <p>10%</p>
+                    </div>
+                    <div class="flex justify-between">
+                      <p>TOTAL</p>
+                      <p>$18.68</p>
+                    </div>
+                </div>
+               
+                </div>
+              </div>
+      </div>
+      </div>
+    </main>
+
+    <!-- <footer class="w-full h-20 sm:h-25 md:h-30 lg:h-35 text-white bg-[#3929ff] flex justify-center items-center">
+      <p>Cartify 2024</p>
+    </footer> -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/cart-html.js" type="module"></script>
+  </body>
+</html>
