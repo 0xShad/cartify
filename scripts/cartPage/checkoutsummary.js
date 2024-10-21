@@ -2,7 +2,7 @@ import {cart} from '../data/cart.js'
 import { productsMatchItem } from '../data/product.js'
 import { formatMoney } from '../../utils/formatMoney.js'
 import {incrementQuantityCheckout, decrementQuantityCheckout} from '../mainPage/counter.js'
-import { updateCartQuantity } from '../data/cart.js'
+import { updateCartQuantity, removeCartItem } from '../data/cart.js'
 
 export function loadCheckoutSummary() {
     updateCartQuantity()
@@ -14,7 +14,7 @@ export function loadCheckoutSummary() {
 
         cartItemHTML +=
         `
-    <div class="card p-5 dark:bg-gray-800 dark:border-gray-700 rounded-lg">
+    <div class="card-${cartId} p-5 dark:bg-gray-800 dark:border-gray-700 rounded-lg">
             <div class="cart-container grid grid-cols-2 mt-3 gap-4">
 
                 <img class="rounded-sm" src="${product.image}" alt="">
@@ -30,7 +30,7 @@ export function loadCheckoutSummary() {
                   </div>
                   <div class="price text-right">
                     <h1>$${(formatMoney(product.priceCents) * cartItem.quantity ).toFixed(2)}</h1>
-                    <span class="text-red-600 cursor-pointer">delete</span>
+                    <span class="text-red-600 cursor-pointer deleteItem" data-product-id="${cartId}">delete</span>
                   </div>
                 </div>
                 </div>
@@ -55,5 +55,13 @@ export function loadCheckoutSummary() {
       })
     })
 
-
+    document.querySelectorAll('.deleteItem')
+    .forEach((deleteBtn) => {
+      deleteBtn.addEventListener('click', () => {
+        const id = deleteBtn.dataset.productId
+        removeCartItem(id)
+        const cardContainer = document.querySelector(`.card-${id}`)
+        cardContainer.remove()
+      })
+    })
 }
