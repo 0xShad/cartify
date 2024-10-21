@@ -31,6 +31,6 @@ export function updateCartQuantity() {
     saveToStorage()
 }
 
-function saveToStorage() {
+export function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
