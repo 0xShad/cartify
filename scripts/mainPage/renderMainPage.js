@@ -13,7 +13,7 @@ export function renderMainPage() {
    products.forEach((item) => {
     const html = `
 <div class="card flex flex-col justify-between max-w-sm w-full shadow dark:bg-gray-800 dark:border-gray-700 rounded-lg">
-            <img src="${item.image}" alt="" class="p-8 rounded-t-lg">
+            <img src="${item.image}" alt="" class="p-8 imgCard rounded-t-lg">
             <div class="px-5 pb-8">
               <h5 class="text-sm min-w-[48px] max-h-[72px] mb-2">${item.name}</h5>
               <img src="images/products/ratings/rating-${item.rating.stars * 10}.png" alt="" class="h-4">

@@ -17,7 +17,7 @@ export function loadCheckoutSummary() {
     <div class="card-${cartId} p-5 dark:bg-gray-800 dark:border-gray-700 rounded-lg">
             <div class="cart-container grid grid-cols-2 mt-3 gap-4">
 
-                <img class="rounded-sm" src="${product.image}" alt="">
+                <img class="rounded-sm md:imgCard" src="${product.image}" alt="">
                 <div class="details">
                     <h1 class="text-xs mb-2">${product.name}</h1>
                 </div>

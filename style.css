@@ -24,3 +24,7 @@ h1,h2,h3 {
   gap: 5rem;
 }
 
+.imgCard {
+  height: 250px;
+  object-fit: contain;
+}
