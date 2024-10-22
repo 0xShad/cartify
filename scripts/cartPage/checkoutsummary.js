@@ -3,6 +3,7 @@ import { productsMatchItem } from '../data/product.js'
 import { formatMoney } from '../../utils/formatMoney.js'
 import {incrementQuantityCheckout, decrementQuantityCheckout} from '../mainPage/counter.js'
 import { updateCartQuantity, removeCartItem } from '../data/cart.js'
+import { renderOrderDetails } from './orderDetails.js'
 
 export function loadCheckoutSummary() {
     updateCartQuantity()
@@ -34,6 +35,8 @@ export function loadCheckoutSummary() {
                   </div>
                 </div>
                 </div>
+
+           
         ` 
 
         document.querySelector('.cart-summary').innerHTML = cartItemHTML
@@ -44,6 +47,7 @@ export function loadCheckoutSummary() {
      button.addEventListener('click', () => {
       incrementQuantityCheckout(button)
       loadCheckoutSummary()
+      renderOrderDetails()
      })
     })
 
@@ -52,6 +56,7 @@ export function loadCheckoutSummary() {
       subButton.addEventListener('click', () => {
         decrementQuantityCheckout(subButton)
         loadCheckoutSummary()
+        renderOrderDetails()
       })
     })
 
