@@ -38,9 +38,15 @@ export function decrementQuantityCheckout(button) {
 
   cart.forEach((cartItem) => {
     if(id === cartItem.productId) {
-      cartItem.quantity -= 1
-      document.querySelector(`.js-quantity-${id}`).innerHTML = cartItem.quantity
-      saveToStorage()
+      if(cartItem.quantity <= 1) {
+        alert('error')
+        cartItem.quantity = 1
+      } else {
+        cartItem.quantity -= 1
+        document.querySelector(`.js-quantity-${id}`).innerHTML = cartItem.quantity
+        saveToStorage()
+      }
+     
     }
   })
 }
